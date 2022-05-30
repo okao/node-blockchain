@@ -10,7 +10,7 @@ describe('testing index file', () => {
 
       satoshi.sendMoney(50, bob.publicKey);
       bob.sendMoney(23, alice.publicKey);
-      alice.sendMoney(5, bob.publicKe);
+      alice.sendMoney(5, bob.publicKey);
 
      console.log(Chain.instance)
      exit
