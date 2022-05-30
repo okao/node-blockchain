@@ -12,7 +12,8 @@ jobs:
         with:
           node-version: 16
       - run: npm ci #this means install
-      - uses: w9jds/firebase-actions@master
+      - name: Deploy to Firebase
+        uses: w9jds/firebase-action@master
         with:
           args: deploy --only hosting
         env:
