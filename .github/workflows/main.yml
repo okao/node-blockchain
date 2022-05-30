@@ -14,5 +14,5 @@ jobs:
         with:
           node-version: 16
       - run: npm ci #this means install
+      - run: npm test
       - run: npm start
-          

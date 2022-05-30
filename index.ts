@@ -3,7 +3,7 @@ import * as crypto from 'crypto';
 // Transfer of funds between two wallets
 class Transaction {
   constructor(
-    public amount: number, 
+    public amount: number,
     public payer: string, // public key
     public payee: string // public key
   ) {}
@@ -19,8 +19,8 @@ class Block {
   public nonce = Math.round(Math.random() * 999999999);
 
   constructor(
-    public prevHash: string, 
-    public transaction: Transaction, 
+    public prevHash: string,
+    public transaction: Transaction,
     public ts = Date.now()
   ) {}
 
@@ -34,7 +34,7 @@ class Block {
 
 
 // The blockchain
-class Chain {
+export class Chain {
   // Singleton instance
   public static instance = new Chain();
 
@@ -90,7 +90,7 @@ class Chain {
 }
 
 // Wallet gives a user a public/private keypair
-class Wallet {
+export class Wallet {
   public publicKey: string;
   public privateKey: string;
 
@@ -111,7 +111,7 @@ class Wallet {
     const sign = crypto.createSign('SHA256');
     sign.update(transaction.toString()).end();
 
-    const signature = sign.sign(this.privateKey); 
+    const signature = sign.sign(this.privateKey);
     Chain.instance.addBlock(transaction, this.publicKey, signature);
   }
 }
@@ -127,5 +127,3 @@ bob.sendMoney(23, alice.publicKey);
 alice.sendMoney(5, bob.publicKey);
 
 console.log(Chain.instance)
-
-
