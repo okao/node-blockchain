@@ -8,7 +8,7 @@ describe('testing index file', () => {
       const bob = new Wallet();
       const alice = new Wallet();
 
-      satoshi.sendMoney(50, bob.publicKey);
+      satoshi.sendMoney(50, bob.publicKe);
       bob.sendMoney(23, alice.publicKey);
       alice.sendMoney(5, bob.publicKey);
 
